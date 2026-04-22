@@ -1,0 +1,14 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Deploy App') {
+            steps {
+                sh '''
+                docker-compose down || true
+                docker-compose up --build -d
+                '''
+            }
+        }
+    }
+}
