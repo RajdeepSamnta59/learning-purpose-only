@@ -1,6 +1,6 @@
 services:
   backend:
-    build: ./backend
+    image: rajdeepsamantaa/edtech-backend
     container_name: backend
     env_file:
       - ./backend/.env
@@ -12,7 +12,7 @@ services:
       - app-network
 
   frontend:
-    build: ./frontend
+    image: rajdeepsamantaa/edtech-frontend
     container_name: frontend
     ports:
       - "3000:80"

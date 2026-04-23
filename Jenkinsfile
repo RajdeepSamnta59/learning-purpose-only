@@ -11,12 +11,26 @@ pipeline {
             }
         }
 
+        stage('Build & Push Images') {
+            steps {
+                sh '''
+                cd Edtech-Platform
+
+                docker build -t rajdeepsamantaa/edtech-backend ./backend
+                docker build -t rajdeepsamantaa/edtech-frontend ./frontend
+
+                docker push rajdeepsamantaa/edtech-backend
+                docker push rajdeepsamantaa/edtech-frontend
+                '''
+            }
+        }
+
         stage('Deploy App') {
             steps {
                 sh '''
                 cd Edtech-Platform
-                docker-compose down || true
-                docker-compose up --build -d
+
+                docker-compose up -d --remove-orphans
                 '''
             }
         }
