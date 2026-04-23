@@ -16,11 +16,11 @@ pipeline {
                 sh '''
                 cd Edtech-Platform
                 IMAGE_TAG=$(date +%s)  
-                docker build -t rajdeepsamantaa/edtech-backend:$ IMAGE_TAG ./backend
-                docker build -t rajdeepsamantaa/edtech-frontend:$ IMAGE_TAG ./frontend
+                docker build -t rajdeepsamantaa/edtech-backend:$IMAGE_TAG ./backend
+                docker build -t rajdeepsamantaa/edtech-frontend:$IMAGE_TAG ./frontend
 
-                docker push rajdeepsamantaa/edtech-backend :$IMAGE_TAG
-                docker push rajdeepsamantaa/edtech-frontend :$IMAGE_TAG
+                docker push rajdeepsamantaa/edtech-backend:$IMAGE_TAG
+                docker push rajdeepsamantaa/edtech-frontend:$IMAGE_TAG
                 '''
             }
         }
